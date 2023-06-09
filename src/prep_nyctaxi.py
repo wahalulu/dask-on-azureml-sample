@@ -18,14 +18,21 @@ for k, v in os.environ.items():
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--nyc_taxi_dataset")
-parser.add_argument("--output_folder")
+parser.add_argument("--output_folder", default="./outputs")
 args = parser.parse_args()
 dataset = args.nyc_taxi_dataset
 output_path = args.output_folder
 
 print(f"dataset location: {dataset}")
 os.system(f"find {dataset}")
-print(f"output location: {output_path}")
+
+
+if not os.path.exists(output_path):  
+    os.makedirs(output_path)  
+    print(f"Directory {output_path} has been created.")  
+else:  
+    print(f"Directory {output_path} already exists.")  
+
 
 # Initialize Dask over MPI
 dask_mpi.initialize()

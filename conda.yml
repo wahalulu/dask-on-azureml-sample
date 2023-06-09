@@ -1,0 +1,9 @@
+dependencies:
+  - python=3.8
+  - pip:
+    - dask[complete]
+    - dask_mpi
+    - mpi4py
+    - pyarrow
+    - azureml-mlflow
+

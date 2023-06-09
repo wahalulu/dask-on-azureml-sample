@@ -1,9 +1,5 @@
-dependencies:
-  - python=3.8
-  - pip:
-    - dask[complete]
-    - dask_mpi
-    - mpi4py
-    - pyarrow
-    - azureml-mlflow
+$schema: https://azuremlschemas.azureedge.net/latest/environment.schema.json
 name: dask-mpi
+image: mcr.microsoft.com/azureml/openmpi4.1.0-ubuntu20.04
+conda_file: conda.yml
+description: Distributed Dask with MPI

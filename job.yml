@@ -6,7 +6,7 @@ description: Dask data preparation job
 
 environment: azureml:dask-mpi@latest
 
-compute: azureml:dask-cluster
+compute: azureml:cluster-marck1
 
 inputs:
   nyc_taxi_dataset:
@@ -19,11 +19,11 @@ outputs:
 
 distribution:
   type: mpi
-  process_count_per_instance: 8
+  process_count_per_instance: 2
 resources:
-  instance_count: 4
+  instance_count: 2
 
 code: src
 
 command: >-
-  python prep_nyctaxi.py --nyc_taxi_dataset ${{inputs.nyc_taxi_dataset}} --output_folder ${{outputs.output_folder}}
+  python prep_nyctaxi.py --nyc_taxi_dataset ${{inputs.nyc_taxi_dataset}} 
